@@ -2,6 +2,7 @@
 # 예제 입력 2를 시행하면 내 생각엔 5가 출력인데, 왜 8인지.. --> 이 문제에서는 뒤에서는 뺄 수 없다! 앞에서만 원소를 뺄 수 있다
 # queue : FIFO
 # deque : 양방향에서 삽입, 삭제 가능
+## deque.index / deque.pop / deque.popleft / deque.append / deque.appendleft
 
 from collections import deque
 import sys
