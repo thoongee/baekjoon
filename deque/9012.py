@@ -4,23 +4,27 @@ input = sys.stdin.readline
 T = int(input())
 
 # 스택이용
+# 괄호 갯수가 맞으면 VPS인줄 알았다
+
 for i in range(T):
     stack = []
-    a=input().strip()
-    for j in a:
-        if j == '(':
-            stack.append(j)
-        elif j == ')':
-            if stack:
-                stack.pop() # stack에 (가 있으면 pop
-            else: # 스택에 괄호가 없을경우
-                print("NO")
-                break
-    else: # break문으로 끊기지 않고 수행됐을경우
-        if not stack: # break문으로 안끊기고 스택이 비어있다면 괄호가 다 맞는거다.
-            print("YES")
-        else: # break안 걸렸더라도 스택에 괄호가 들어있다면 NO이다.
-            print("NO")
+    line = input().strip()
+    for item in line:
+        if stack:
+            if item =='(':
+                stack.append(item)
+            elif item==')':
+                if stack[-1]=='(':
+                    stack.pop()
+                else:
+                    stack.append(item)
 
+        else:
+            stack.append(item)
+
+    if stack: # stack에 괄호가 남아있다면
+        print("NO")
+    else:
+        print("YES")
             
 # sum 이용
